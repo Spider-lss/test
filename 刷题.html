@@ -1,0 +1,2503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>国家税务总局新入职培训全考点智能题库系统</title>
+<style>
+  :root {
+    --primary: #1B365D;
+    --primary-light: #2B547E;
+    --primary-bg: #F0F4F8;
+    --accent: #C8102E;
+    --success: #1E7E34;
+    --success-bg: #E8F5E9;
+    --danger: #C62828;
+    --danger-bg: #FFEBEE;
+    --warning: #B26A00;
+    --warning-bg: #FFF8E1;
+    --text-main: #1F2937;
+    --text-sub: #4B5563;
+    --text-muted: #6B7280;
+    --border: #D1D5DB;
+    --bg-body: #F3F5F8;
+    --bg-card: #FFFFFF;
+    --shadow: 0 4px 14px rgba(27, 54, 93, 0.08);
+    --radius: 12px;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.55;
+    padding-bottom: 48px;
+  }
+
+  /* ================= 顶部导航栏 ================= */
+  .header {
+    background: linear-gradient(135deg, #132744 0%, #1B365D 60%, #274C77 100%);
+    color: #fff;
+    padding: 16px 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand-badge {
+    background: #C8102E;
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+
+  .brand h1 {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .brand p {
+    font-size: 12px;
+    color: #CBD5E1;
+    margin-top: 2px;
+  }
+
+  .header-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .btn {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn:active {
+    transform: translateY(0);
+  }
+
+  .btn-header {
+    background: rgba(255,255,255,0.14);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.24);
+  }
+
+  .btn-header:hover {
+    background: rgba(255,255,255,0.24);
+  }
+
+  .btn-header.active {
+    background: #fff;
+    color: var(--primary);
+  }
+
+  .btn-primary {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-light);
+  }
+
+  .btn-success {
+    background: var(--success);
+    color: #fff;
+  }
+
+  .btn-outline {
+    background: #fff;
+    color: var(--primary);
+    border: 1px solid var(--border);
+  }
+
+  .btn-outline:hover {
+    background: var(--primary-bg);
+    border-color: var(--primary);
+  }
+
+  .btn-danger-outline {
+    background: #fff;
+    color: var(--danger);
+    border: 1px solid #FECACA;
+  }
+
+  .btn-danger-outline:hover {
+    background: var(--danger-bg);
+  }
+
+  /* ================= 手机端专属抽屉与遮罩 ================= */
+  .mobile-drawer-bar {
+    display: none;
+  }
+
+  .drawer-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.5);
+    z-index: 140;
+    backdrop-filter: blur(2px);
+  }
+
+  .drawer-backdrop.show {
+    display: block;
+  }
+
+  .drawer-close-header {
+    display: none;
+  }
+
+  /* ================= 主容器 ================= */
+  .container {
+    max-width: 1140px;
+    margin: 20px auto 0;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 20px;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px;
+    border: 1px solid #E5E7EB;
+  }
+
+  .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--primary-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* 统计面板 */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .stat-item {
+    background: var(--primary-bg);
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1.2;
+  }
+
+  .stat-num.wrong { color: var(--danger); }
+  .stat-num.star { color: var(--warning); }
+  .stat-num.rate { color: var(--success); }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-sub);
+    margin-top: 2px;
+  }
+
+  /* 专题筛选列表 */
+  .topic-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .topic-btn {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: var(--text-main);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.15s;
+  }
+
+  .topic-btn:hover {
+    background: var(--primary-bg);
+  }
+
+  .topic-btn.active {
+    background: var(--primary);
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .topic-count {
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 99px;
+    background: rgba(0,0,0,0.08);
+  }
+
+  .topic-btn.active .topic-count {
+    background: rgba(255,255,255,0.22);
+    color: #fff;
+  }
+
+  /* 答题卡网格 */
+  .sheet-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 2px;
+  }
+
+  .sheet-item {
+    aspect-ratio: 1;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-sub);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .sheet-item:hover {
+    border-color: var(--primary);
+  }
+
+  .sheet-item.current {
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 0 2px rgba(27,54,93,0.18);
+  }
+
+  .sheet-item.correct {
+    background: var(--success-bg);
+    color: var(--success);
+    border-color: #A5D6A7;
+  }
+
+  .sheet-item.wrong {
+    background: var(--danger-bg);
+    color: var(--danger);
+    border-color: #EF9A9A;
+  }
+
+  .sheet-item.starred::after {
+    content: "★";
+    position: absolute;
+    top: -4px;
+    right: 0px;
+    font-size: 9px;
+    color: #F59E0B;
+  }
+
+  /* 右侧答题主区域 */
+  .main-area {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+  }
+
+  /* 顶部工具条 */
+  .toolbar {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 12px 18px;
+    box-shadow: var(--shadow);
+    border: 1px solid #E5E7EB;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .mode-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .mode-tab {
+    padding: 6px 12px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text-sub);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .mode-tab.active {
+    background: var(--primary-bg);
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+
+  .filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .select-box {
+    padding: 6px 10px;
+    border-radius: 7px;
+    border: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-main);
+    background: #fff;
+  }
+
+  /* 题目卡片 */
+  .question-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px 26px;
+    border: 1px solid #E5E7EB;
+  }
+
+  .q-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #F3F4F6;
+  }
+
+  .q-tags {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .tag-type {
+    background: var(--primary);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 5px;
+  }
+
+  .tag-type.multi {
+    background: #7C3AED;
+  }
+
+  .tag-topic {
+    background: var(--primary-bg);
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 5px;
+  }
+
+  .tag-wrong-count {
+    background: var(--danger-bg);
+    color: var(--danger);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 5px;
+  }
+
+  .q-actions-top {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .star-btn {
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
+    color: #B45309;
+    padding: 4px 10px;
+    border-radius: 7px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .star-btn.starred {
+    background: #F59E0B;
+    color: #fff;
+    border-color: #D97706;
+  }
+
+  .q-stem {
+    font-size: 16.5px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 18px;
+    line-height: 1.6;
+  }
+
+  .q-index {
+    color: var(--primary);
+    font-weight: 800;
+    margin-right: 6px;
+  }
+
+  /* 选项列表 */
+  .options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .option-item {
+    border: 1.5px solid #E5E7EB;
+    border-radius: 10px;
+    padding: 12px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    transition: all 0.15s ease;
+    background: #fff;
+    user-select: none;
+  }
+
+  .option-item:hover:not(.disabled) {
+    border-color: var(--primary-light);
+    background: #F8FAFC;
+  }
+
+  .option-item.selected {
+    border-color: var(--primary);
+    background: var(--primary-bg);
+  }
+
+  .option-item.correct-ans {
+    border-color: var(--success);
+    background: var(--success-bg);
+  }
+
+  .option-item.wrong-ans {
+    border-color: var(--danger);
+    background: var(--danger-bg);
+  }
+
+  .option-key {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1.5px solid #CBD5E1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-sub);
+    flex-shrink: 0;
+    background: #fff;
+    margin-top: 1px;
+  }
+
+  .option-item.selected .option-key {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+  }
+
+  .option-item.correct-ans .option-key {
+    background: var(--success);
+    color: #fff;
+    border-color: var(--success);
+  }
+
+  .option-item.wrong-ans .option-key {
+    background: var(--danger);
+    color: #fff;
+    border-color: var(--danger);
+  }
+
+  .option-text {
+    font-size: 15px;
+    color: var(--text-main);
+    flex: 1;
+    padding-top: 1px;
+  }
+
+  .option-badge {
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .badge-selected {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  .badge-correct {
+    background: var(--success);
+    color: #fff;
+  }
+
+  .badge-wrong {
+    background: var(--danger);
+    color: #fff;
+  }
+
+  /* 多选题提交条 */
+  .multi-submit-bar {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: #F8FAFC;
+    padding: 11px 14px;
+    border-radius: 8px;
+    border: 1px dashed #CBD5E1;
+  }
+
+  .multi-hint {
+    font-size: 13px;
+    color: var(--text-sub);
+  }
+
+  /* 详细解析面板 */
+  .explanation-box {
+    margin-top: 18px;
+    background: #F8FAFC;
+    border-left: 4px solid var(--primary);
+    border-radius: 8px;
+    padding: 14px 18px;
+    animation: fadeIn 0.2s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .exp-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .exp-status.ok { color: var(--success); }
+  .exp-status.err { color: var(--danger); }
+
+  .exp-ans {
+    color: var(--primary);
+  }
+
+  .exp-content {
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.65;
+  }
+
+  .exp-source {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+    background: #EEF2F6;
+    padding: 4px 9px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+  /* 底部翻题导航 */
+  .nav-footer {
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px solid #F3F4F6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .progress-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  /* 模拟自测横幅 */
+  .exam-banner {
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
+    border-radius: 10px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .exam-timer {
+    font-size: 14.5px;
+    font-weight: 800;
+    color: #B45309;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* 空状态 */
+  .empty-state {
+    text-align: center;
+    padding: 56px 20px;
+    color: var(--text-muted);
+  }
+
+  .empty-state h3 {
+    font-size: 17px;
+    color: var(--text-main);
+    margin-bottom: 8px;
+  }
+
+  /* 弹窗 */
+  .modal-mask {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 16px;
+  }
+
+  .modal-mask.show {
+    display: flex;
+  }
+
+  .modal-box {
+    background: #fff;
+    border-radius: 14px;
+    max-width: 480px;
+    width: 100%;
+    padding: 24px;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+  }
+
+  .modal-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 12px;
+  }
+
+  .score-circle {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: var(--primary-bg);
+    border: 5px solid var(--primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 16px auto;
+  }
+
+  .score-val {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1.1;
+  }
+
+  .score-sub {
+    font-size: 12px;
+    color: var(--text-sub);
+  }
+
+  /* =================================================================
+     极致一屏手机端适配（无需滚动即可在一屏内看全题干 + 4个选项 + 提交！）
+     ================================================================= */
+  @media (max-width: 880px) {
+    body {
+      padding-bottom: 66px;
+    }
+
+    /* 1. 超紧凑顶部栏：合并成单行精简工具栏，节省近 120px 高度 */
+    .header {
+      position: static;
+      padding: 8px 12px;
+    }
+
+    .header-inner {
+      gap: 6px;
+      flex-wrap: nowrap;
+    }
+
+    .brand {
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .brand-badge {
+      font-size: 10.5px;
+      padding: 2px 6px;
+    }
+
+    .brand h1 {
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand p {
+      display: none;
+    }
+
+    .header-actions {
+      flex-shrink: 0;
+      gap: 4px;
+      flex-wrap: nowrap;
+    }
+
+    .header-actions .btn {
+      padding: 5px 7px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .btn-download-desktop {
+      display: none; /* 手机端下载按钮移入抽屉内部，腾出顶部空间 */
+    }
+
+    /* 2. 主容器紧凑间距 */
+    .container {
+      grid-template-columns: 1fr;
+      margin-top: 6px;
+      padding: 0 8px;
+      gap: 6px;
+    }
+
+    /* 3. 侧边栏抽屉 */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 84%;
+      max-width: 330px;
+      background: var(--bg-body);
+      z-index: 150;
+      padding: 14px;
+      overflow-y: auto;
+      transform: translateX(-105%);
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 4px 0 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .sidebar.open {
+      transform: translateX(0);
+    }
+
+    .drawer-close-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 4px;
+    }
+
+    .drawer-close-header span {
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--primary);
+    }
+
+    /* 4. 将“专题/答题卡”与“题型筛选”合并到同一行，省出整整一行高度！ */
+    .mobile-drawer-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      background: #fff;
+      padding: 6px 8px;
+      border-radius: 9px;
+      box-shadow: var(--shadow);
+      border: 1px solid #E5E7EB;
+    }
+
+    .mobile-drawer-btn {
+      background: var(--primary-bg);
+      color: var(--primary);
+      border: 1px solid #CBD5E1;
+      border-radius: 7px;
+      padding: 5px 9px;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .mobile-mini-stat {
+      font-size: 11.5px;
+      color: var(--text-sub);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .mobile-type-select {
+      padding: 5px 6px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-main);
+      background: #fff;
+      max-width: 105px;
+    }
+
+    /* 5. 视图切换标签单行紧凑排列，隐藏冗余的第二行筛选框 */
+    .toolbar {
+      padding: 6px 8px;
+      gap: 0;
+    }
+
+    .mode-tabs {
+      width: 100%;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      gap: 5px;
+    }
+
+    .mode-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .mode-tab {
+      padding: 4px 9px;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    .filter-controls {
+      display: none; /* 已合并进上方单行控制条 */
+    }
+
+    /* 6. 题目卡片极致紧凑排版：一屏完整装下题干 + 4个选项 + 提交按钮 */
+    .main-area {
+      gap: 6px;
+    }
+
+    .question-card {
+      padding: 11px 12px;
+      border-radius: 10px;
+    }
+
+    .q-meta {
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      gap: 4px;
+    }
+
+    .tag-type, .tag-topic, .tag-wrong-count {
+      font-size: 11px;
+      padding: 2px 6px;
+    }
+
+    .star-btn {
+      padding: 2px 8px;
+      font-size: 11.5px;
+    }
+
+    .q-stem {
+      font-size: 14.5px;
+      margin-bottom: 10px;
+      line-height: 1.48;
+    }
+
+    .options-list {
+      gap: 7px;
+    }
+
+    .option-item {
+      padding: 8px 10px;
+      gap: 8px;
+      border-radius: 8px;
+    }
+
+    .option-key {
+      width: 22px;
+      height: 22px;
+      font-size: 12px;
+      margin-top: 1px;
+    }
+
+    .option-text {
+      font-size: 13.5px;
+      line-height: 1.42;
+      padding-top: 0;
+    }
+
+    .option-badge {
+      font-size: 10.5px;
+      padding: 1px 5px;
+      margin-top: 1px;
+    }
+
+    /* 多选题提交按钮行：单行紧凑展示，绝不撑高屏幕 */
+    .multi-submit-bar {
+      margin-top: 9px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 10px;
+    }
+
+    .multi-hint {
+      font-size: 12px;
+    }
+
+    .multi-submit-bar .btn {
+      width: auto;
+      padding: 6px 12px;
+      font-size: 12.5px;
+      flex-shrink: 0;
+    }
+
+    /* 解析框紧凑显示 */
+    .explanation-box {
+      margin-top: 10px;
+      padding: 10px 12px;
+    }
+
+    .exp-header {
+      font-size: 13px;
+      margin-bottom: 5px;
+      gap: 8px;
+    }
+
+    .exp-content {
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    /* 7. 底部固定拇指操作栏：提交后直接点右下角“下一题”无缝切换！ */
+    .nav-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin-top: 0;
+      padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #E5E7EB;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.06);
+      z-index: 90;
+      flex-wrap: nowrap;
+    }
+
+    .nav-footer .btn {
+      padding: 8px 14px;
+      font-size: 13px;
+    }
+
+    .progress-text {
+      font-size: 12px;
+      text-align: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-badge">税务复习</span>
+      <div>
+        <h1>总局新入职培训全考点题库</h1>
+        <p>依据《校订终稿》六大专题全覆盖 · 支持多选交互、自动错题本、收藏夹与背题模式</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-header" id="btnExamMode" onclick="toggleExamMode()">⏱ 模拟自测</button>
+      <button class="btn btn-header" id="btnReciteMode" onclick="toggleReciteMode()">📖 背题：关</button>
+      <button class="btn btn-header btn-download-desktop" onclick="downloadSelfHtml()">💾 下载网页</button>
+    </div>
+  </div>
+</header>
+
+<!-- 手机端抽屉遮罩层 -->
+<div class="drawer-backdrop" id="drawerBackdrop" onclick="closeMobileDrawer()"></div>
+
+<div class="container">
+  <!-- 左侧边栏（PC端固定显示；手机端自动收纳为侧滑抽屉） -->
+  <aside class="sidebar" id="sidebarDrawer">
+    <div class="drawer-close-header">
+      <span>📚 专题筛选与答题卡</span>
+      <button class="btn btn-outline" style="padding: 4px 10px; font-size: 12px;" onclick="closeMobileDrawer()">✕ 关闭</button>
+    </div>
+
+    <!-- 学习数据统计 -->
+    <div class="card">
+      <div class="card-title">
+        <span>📊 学习进度统计</span>
+        <button class="btn btn-danger-outline" style="padding: 3px 8px; font-size: 11px;" onclick="resetAllProgress()">重置记录</button>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-num" id="statDone">0 / 46</div>
+          <div class="stat-label">本次已刷</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num rate" id="statRate">0%</div>
+          <div class="stat-label">首次正确率</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num wrong" id="statWrong">0</div>
+          <div class="stat-label">错题本累计</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num star" id="statStar">0</div>
+          <div class="stat-label">我的收藏</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 专题模块筛选 -->
+    <div class="card">
+      <div class="card-title"><span>📚 六大专题筛选</span></div>
+      <div class="topic-list" id="topicList"></div>
+    </div>
+
+    <!-- 答题卡导航 -->
+    <div class="card">
+      <div class="card-title">
+        <span>🗂 题号快速跳转</span>
+        <span style="font-size: 11px; color: var(--text-muted); font-weight: 400;">★代表已收藏</span>
+      </div>
+      <div class="sheet-grid" id="sheetGrid"></div>
+    </div>
+
+    <button class="btn btn-outline" style="width: 100%;" onclick="downloadSelfHtml()">💾 保存本网页到本地文件</button>
+  </aside>
+
+  <!-- 右侧主答题区 -->
+  <main class="main-area">
+    <!-- 手机端专属单行控制栏（专题抽屉 + 进度 + 题型筛选合一） -->
+    <div class="mobile-drawer-bar">
+      <button class="mobile-drawer-btn" onclick="openMobileDrawer()">
+        <span>📚 专题/答题卡</span>
+      </button>
+      <div class="mobile-mini-stat" id="mobileMiniStat">0/46 · 0%</div>
+      <select class="mobile-type-select" id="mobileTypeFilter" onchange="syncTypeFilter(this.value)">
+        <option value="all">全部题型</option>
+        <option value="single">仅单选题</option>
+        <option value="multi">仅多选题</option>
+      </select>
+    </div>
+
+    <!-- 视图切换与题型筛选 -->
+    <div class="toolbar">
+      <div class="mode-tabs">
+        <button class="mode-tab active" data-view="all" onclick="switchView('all')">全部题库</button>
+        <button class="mode-tab" data-view="wrong" onclick="switchView('wrong')">📕 错题本 (<span id="tabWrongCount">0</span>)</button>
+        <button class="mode-tab" data-view="star" onclick="switchView('star')">⭐ 收藏夹 (<span id="tabStarCount">0</span>)</button>
+        <button class="mode-tab" data-view="unanswered" onclick="switchView('unanswered')">🆕 未做题目</button>
+      </div>
+      <div class="filter-controls">
+        <select class="select-box" id="typeFilter" onchange="syncTypeFilter(this.value)">
+          <option value="all">全部题型（单选+多选）</option>
+          <option value="single">仅看单选题</option>
+          <option value="multi">仅看多选题</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- 模拟自测状态条 -->
+    <div class="exam-banner" id="examBanner" style="display: none;">
+      <div>
+        <strong>🎯 模拟自测中</strong>（20题）
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="exam-timer" id="examTimer">00:00</span>
+        <button class="btn btn-primary" style="padding: 5px 10px;" onclick="finishExam()">交卷</button>
+        <button class="btn btn-outline" style="padding: 5px 10px;" onclick="exitExamMode()">退出</button>
+      </div>
+    </div>
+
+    <!-- 题目展示卡片 -->
+    <div id="questionContainer"></div>
+  </main>
+</div>
+
+<!-- 模拟自测成绩弹窗 -->
+<div class="modal-mask" id="examResultModal">
+  <div class="modal-box">
+    <div class="modal-title">🎉 模拟自测成绩单</div>
+    <div class="score-circle">
+      <div class="score-val" id="modalScore">0</div>
+      <div class="score-sub">总分 100 分</div>
+    </div>
+    <p id="modalSummary" style="text-align: center; font-size: 14px; color: var(--text-sub); margin-bottom: 18px;"></p>
+    <div style="display: flex; gap: 10px; justify-content: center;">
+      <button class="btn btn-primary" onclick="closeExamModal(true)">查看错题本复盘</button>
+      <button class="btn btn-outline" onclick="closeExamModal(false)">继续浏览题目</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ================= 完整全考点题库数据（共46题，覆盖校订终稿六大模块） =================
+const QUESTIONS = [
+  // ---------- 模块一：职业认同与深化税收征管改革（11题） ----------
+  {
+    id: 1,
+    topic: "一、职业认同与征管改革",
+    type: "single",
+    stem: "深化税收征管改革是具有前瞻性、战略性、引领性的重大改革举措，旨在更好服务中国式现代化。新一轮税收征管改革已会签了多少个部委协同推进？",
+    options: ["18个部委", "24个部委", "28个部委", "32个部委"],
+    answer: ["C"],
+    explanation: "根据培训笔记第一部分：深化税收征管改革是具有前瞻性、战略性、引领性的重大改革举措，截至目前中央深改委已多次审议涉税改革议题，新一轮改革已会签 28 个部委协同推进。",
+    source: "专题一 · 1.改革背景与法制框架"
+  },
+  {
+    id: 2,
+    topic: "一、职业认同与征管改革",
+    type: "multi",
+    stem: "税收征管是指税务机关依法对税收征收管理全过程开展的一系列活动，其核心基本概念包括哪三项内容？",
+    options: ["税务管理", "税款征收", "税务检查", "纳税信用评级"],
+    answer: ["A", "B", "C"],
+    explanation: "税收征管的基本概念（是什么、怎么运转）明确为：税务机关依法对税收征收管理全过程开展的“税务管理、税款征收和税务检查”活动。",
+    source: "专题一 · 1.改革背景与法制框架"
+  },
+  {
+    id: 3,
+    topic: "一、职业认同与征管改革",
+    type: "multi",
+    stem: "现行《税收征收管理法》于1992年颁布，目前正推进第2次全面修订。本次修法的总体思路包括以下哪些方面？",
+    options: ["坚持立法与改革相协同", "坚持问题导向", "坚持统筹兼顾", "坚持税率全面下调"],
+    answer: ["A", "B", "C"],
+    explanation: "《税收征收管理法》第2次全面修订的总体思路为三条：①坚持立法与改革相协同；②坚持问题导向；③坚持统筹兼顾。",
+    source: "专题一 · 1.改革背景与法制框架"
+  },
+  {
+    id: 4,
+    topic: "一、职业认同与征管改革",
+    type: "multi",
+    stem: "根据课堂笔记记录的《税收征收管理法》修订草案拟议亮点，下列哪些属于本次修法的【草案】拟议措施？",
+    options: [
+      "税务机关经批准可对欠税额巨大的个人实施行政强制",
+      "明确税务机关有权运用涉税大数据实施风险管理措施",
+      "明确税款滞纳金不得超过税款本金，并增加免予加收情形",
+      "取消行政复议的“清税前置”条件，切实保障纳税人合法权益"
+    ],
+    answer: ["A", "B", "C", "D"],
+    explanation: "《征管法》修订草案拟议六大亮点包括：①经批准可对欠税额巨大的个人实施行政强制；②有权运用涉税大数据实施风险管理；③对未依法履行出资义务的出资人特定情形可直接追缴税款；④完善偷、抗、骗税追征期与加收程序；⑤滞纳金不得超过税款本金并增加免予加收情形；⑥取消行政复议“清税前置”条件。（注：以上为草案拟议要点，不代表现行已生效规定）。",
+    source: "专题一 · 1.改革背景与法制框架【草案】"
+  },
+  {
+    id: 5,
+    topic: "一、职业认同与征管改革",
+    type: "single",
+    stem: "关于《税收征收管理法》修订草案中针对“纳税人的出资人未依法履行出资义务”等特定情形的拟议规定，下列说法正确的是？",
+    options: [
+      "税务机关只能等待法院破产清算后按比例受偿",
+      "税务机关可直接向出资人追缴税款",
+      "由市场监管部门代为征收税款",
+      "自动豁免该部分欠缴税款"
+    ],
+    answer: ["B"],
+    explanation: "修订草案拟议亮点第③条明确：对纳税人的出资人未依法履行出资义务等特定情形，税务机关可直接向出资人追缴税款。",
+    source: "专题一 · 1.改革背景与法制框架【草案】"
+  },
+  {
+    id: 6,
+    topic: "一、职业认同与征管改革",
+    type: "single",
+    stem: "税收征管的基本运行程序，是以（ ）为基础，以税务机关开展（ ）为重点，组织实施日常基础管理、申报纳税、风险应对提示、税务稽查/调查、税款追征及争议处理等系列活动。",
+    options: [
+      "税务机关核定征收；发票管理",
+      "纳税人自主申报；风险管理",
+      "第三方信息共享；税务稽查",
+      "税源专业化管理；纳税评估"
+    ],
+    answer: ["B"],
+    explanation: "税收征管的基本运行程序是以“纳税人自主申报”为基础，以税务机关开展“风险管理”为重点开展系列活动，保障税法有效执行、税款及时足额入库。",
+    source: "专题一 · 2.税收征管的基本内涵与运行程序"
+  },
+  {
+    id: 7,
+    topic: "一、职业认同与征管改革",
+    type: "single",
+    stem: "在税收征管改革历程中，推行“征、管、查”三分离试点和现代税收征管模式正式确立分别是在哪一年？",
+    options: ["1987年和1997年", "1994年和2004年", "1987年和1994年", "1994年和2008年"],
+    answer: ["A"],
+    explanation: "起步与机制确立期（1987—1997年）：1987年推行“征、管、查”三分离试点；1994年配合分税制改革确立新征管格局；1997年现代税收征管模式正式确立。",
+    source: "专题一 · 3.税收征管改革历程与新阶段任务"
+  },
+  {
+    id: 8,
+    topic: "一、职业认同与征管改革",
+    type: "multi",
+    stem: "2021年中共中央办公厅、国务院办公厅印发《关于进一步深化税收征管改革的意见》，智慧税务建设全面启动，推动实现哪“四精”目标？",
+    options: ["精确执法", "精细服务", "精准监管", "精诚共治"],
+    answer: ["A", "B", "C", "D"],
+    explanation: "2021年《意见》印发，智慧税务建设全面启动，推动实现“精确执法、精细服务、精准监管、精诚共治”，实现从“以票控税”向“以数治税”跨越。",
+    source: "专题一 · 3.税收征管改革历程与新阶段任务"
+  },
+  {
+    id: 9,
+    topic: "一、职业认同与征管改革",
+    type: "multi",
+    stem: "当前我国现行共有18个税种，新阶段税收征管工作面临的新挑战主要包括哪些？",
+    options: [
+      "新经济新业态虚拟性强、流动性高",
+      "属地管理模式存在局限性",
+      "自然人税费征管难度大",
+      "纳税人数量增长与基层征管力量结构矛盾"
+    ],
+    answer: ["A", "B", "C", "D"],
+    explanation: "新时代征管面临四大新挑战：①新经济新业态虚拟性强、流动性高；②属地管理模式存在局限性；③自然人税费征管难度大；④纳税人数量增长与基层征管力量结构矛盾。",
+    source: "专题一 · 3.税收征管改革历程与新阶段任务"
+  },
+  {
+    id: 10,
+    topic: "一、职业认同与征管改革",
+    type: "multi",
+    stem: "围绕“效能税务”建设，要以数字化转型条件下的税费征管“强基工程”为抓手，重点提升哪“四效”？",
+    options: ["提效率", "增效力", "强效果", "创效益"],
+    answer: ["A", "B", "C", "D"],
+    explanation: "围绕“效能税务”建设，要实现“提效率、增效力、强效果、创效益”四大目标，主攻强化合规监管与维护法治公平。",
+    source: "专题一 · 3.税收征管改革历程与新阶段任务"
+  },
+  {
+    id: 11,
+    topic: "一、职业认同与征管改革",
+    type: "multi",
+    stem: "落实税费征管“强基工程”和未来改革展望中，重点推进的五项核心任务包括强征管、优执法、优服务、强支撑以及（ ）。",
+    options: [
+      "强化重点领域常态化监管",
+      "做到战略坚定性与战术灵活性相统一",
+      "全面推进税费征管数字化转型",
+      "创新服务引导合规遵从"
+    ],
+    answer: ["A", "B", "C", "D"],
+    explanation: "重点推进五大任务：全面推进税费征管数字化转型（强征管）、持续优化税务执法（优执法）、创新服务引导合规遵从（优服务）、强化征管组织保障（强支撑）以及强化重点领域常态化监管，做到战略坚定性与战术灵活性相统一。",
+    source: "专题一 · 3.税收征管改革历程与新阶段任务"
+  },
+
+  // ---------- 模块二：深入学习领会习近平经济思想（6题） ----------
+  {
+    id: 12,
+    topic: "二、习近平经济思想",
+    type: "multi",
+    stem: "习近平经济思想是马克思主义政治经济学中国化时代化的最新成果，它科学回答了哪四个重大时代课题？",
+    options: ["为什么要发展", "为谁发展", "实现什么样的发展", "如何发展"],
+    answer: ["A", "B", "C", "D"],
+    explanation: "发展是党执政兴国的第一要务，经济工作是党的中心工作。习近平经济思想科学回答了“为什么要发展、为谁发展、实现什么样的发展、如何发展”等重大时代课题。",
+    source: "专题二 · 1.理论逻辑与体系演进"
+  },
+  {
+    id: 13,
+    topic: "二、习近平经济思想",
+    type: "single",
+    stem: "习近平经济思想正式提出并形成系统理论体系是在哪一次重要会议上？",
+    options: [
+      "2015年中央经济工作会议",
+      "2017年6月《习近平关于社会主义经济建设论述摘编》出版时",
+      "2017年12月中央经济工作会议",
+      "2020年党的十九届五中全会"
+    ],
+    answer: ["C"],
+    explanation: "习近平经济思想历经“初步形成—日臻成熟—持续完善”的演进过程：2017年6月《习近平关于社会主义经济建设论述摘编》出版，2017年12月中央经济工作会议正式提出并形成系统理论体系。",
+    source: "专题二 · 1.理论逻辑与体系演进"
+  },
+  {
+    id: 14,
+    topic: "二、习近平经济思想",
+    type: "multi",
+    stem: "下列关于习近平经济思想核心要义的表述，正确的有哪些？",
+    options: [
+      "根本立场是坚持以人民为中心的发展思想（人民性是马克思主义最鲜明的品格）",
+      "强国路径是以中国式现代化全面推进中华民族伟大复兴",
+      "首要任务是坚定不移推进高质量发展",
+      "制度基础是实现“有效的市场”与“有为的政府”更好结合"
+    ],
+    answer: ["A", "B", "C", "D"],
+    explanation: "五大核心要义：①根本立场：以人民为中心；②强国路径：以中国式现代化全面推进中华民族伟大复兴；③首要任务：高质量发展；④制度基础：社会主义基本经济制度，“有效市场”与“有为政府”结合（借鉴“晋江经验”——六个始终坚持、正确处理好五大关系）；⑤开放之道：推动经济全球化健康发展。",
+    source: "专题二 · 1.理论逻辑与体系演进"
+  },
+  {
+    id: 15,
+    topic: "二、习近平经济思想",
+    type: "single",
+    stem: "在习近平经济思想的六大实践方略中，作为最根本、最主要指引的是（ ），而我国预计到（ ）年基本形成新发展格局。",
+    options: [
+      "新发展阶段；2025",
+      "新发展理念；2035",
+      "全面深化改革；2030",
+      "统筹发展和安全；2050"
+    ],
+    answer: ["B"],
+    explanation: "六大实践方略中，“贯彻新发展理念”是最根本、最主要的指引；“构建新发展格局”是2035年基本形成新发展格局的战略选择。",
+    source: "专题二 · 2.实践方略与科学方法论"
+  },
+  {
+    id: 16,
+    topic: "二、习近平经济思想",
+    type: "multi",
+    stem: "习近平经济思想的五大科学方法包括坚持稳中求进工作总基调，以及以下哪些内容？",
+    options: [
+      "坚持系统观念（学会“十个指头弹钢琴”）",
+      "坚持目标导向和问题导向相统一",
+      "集中精力办好自己的事",
+      "发扬钉钉子精神抓落实（关键在于一个“实”字）"
+    ],
+    answer: ["A", "B", "C", "D"],
+    explanation: "五大科学方法：①坚持稳中求进工作总基调；②坚持系统观念（学会“十个指头弹钢琴”）；③坚持目标导向和问题导向相统一；④集中精力办好自己的事；⑤发扬钉钉子精神抓落实（关键在于一个“实”字）。",
+    source: "专题二 · 2.实践方略与科学方法论"
+  },
+  {
+    id: 17,
+    topic: "二、习近平经济思想",
+    type: "single",
+    stem: "在社会主义基本经济制度实践中，习近平总书记总结推广的“晋江经验”，其核心内涵概括为？",
+    options: [
+      "“四个自信”与“五位一体”",
+      "“六个始终坚持”和“正确处理好五大关系”",
+      "“三去一降一补”",
+      "“两个毫不动摇”与“三次分配”"
+    ],
+    answer: ["B"],
+    explanation: "坚持和完善社会主义基本经济制度，实现“有效的市场”与“有为的政府”更好结合，重要实践范例即“晋江经验”——“六个始终坚持、正确处理好五大关系”。",
+    source: "专题二 · 1.理论逻辑与体系演进"
+  },
+
+  // ---------- 模块三：税务系统内部控制与“两权”监督（5题） ----------
+  {
+    id: 18,
+    topic: "三、内控与“两权”监督",
+    type: "multi",
+    stem: "税务系统内部控制工作必须紧盯“两权”运行关键环节，这里的“两权”具体是指（ ）。",
+    options: ["税务执法权", "行政管理权", "税收立法权", "人事任免权"],
+    answer: ["A", "B"],
+    explanation: "“两权”运行特指税务部门的“税务执法权”和“行政管理权”。",
+    source: "专题三 · 1.政治要求与风险防范意义"
+  },
+  {
+    id: 19,
+    topic: "三、内控与“两权”监督",
+    type: "multi",
+    stem: "聚焦“两权”运行关键环节，税务部门需要严防的“三大风险”是指（ ）。",
+    options: ["廉政风险", "作风风险", "安全风险", "舆情风险"],
+    answer: ["A", "B", "C"],
+    explanation: "聚焦税务执法权和行政管理权（“两权”）运行关键环节，严防廉政风险、作风风险与安全风险。",
+    source: "专题三 · 1.政治要求与风险防范意义"
+  },
+  {
+    id: 20,
+    topic: "三、内控与“两权”监督",
+    type: "multi",
+    stem: "防范和化解“两权”运行风险具有重大意义，下列属于其“四大必然要求/重要保障”的是？",
+    options: [
+      "是坚决维护党中央权威和集中统一领导的必然要求",
+      "是推动全面从严治党向纵深发展的必然要求",
+      "是强化税务系统“一把手”和权力监督的必然要求",
+      "是纵深推进深化税收征管改革的重要保障"
+    ],
+    answer: ["A", "B", "C", "D"],
+    explanation: "化解风险的四大重大意义：①坚决维护党中央权威和集中统一领导的必然要求；②推动全面从严治党向纵深发展的必然要求；③强化税务系统“一把手”和权力监督的必然要求；④纵深推进深化税收征管改革的重要保障。",
+    source: "专题三 · 1.政治要求与风险防范意义"
+  },
+  {
+    id: 21,
+    topic: "三、内控与“两权”监督",
+    type: "single",
+    stem: "税务系统内部控制旨在通过规范和监督权力运行，充分发挥税收在国家治理体系中的（ ）作用。",
+    options: [
+      "主导性、决定性和根本性",
+      "基础性、支柱性和保障性",
+      "先导性、战略性和引领性",
+      "调节性、补偿性和兜底性"
+    ],
+    answer: ["B"],
+    explanation: "内部控制旨在通过规范和监督权力运行，更好履行税收职能，充分发挥税收在国家治理体系中的“基础性、支柱性和保障性”作用。",
+    source: "专题三 · 2.内部控制工作实践"
+  },
+  {
+    id: 22,
+    topic: "三、内控与“两权”监督",
+    type: "single",
+    stem: "关于税务系统内部控制工作的演进阶段与核心定位，下列说法不正确的是（ ）。",
+    options: [
+      "2008—2011年为起步探索期，以廉政风险防控为重点",
+      "2012—2015年为深化拓展期，推进信息化探索",
+      "2020年至今为全面提升期，覆盖范围、制度体系与信息化程度全面跃升",
+      "内部控制是替代专责监督的独立司法审判机制"
+    ],
+    answer: ["D"],
+    explanation: "通过“以内控促规范、以监督强治理”，内控已成为连接“职能监督”与“专责监督”的重要纽带，有效筑牢风险防线，并非替代专责监督的司法审判机制。",
+    source: "专题三 · 2.内部控制工作实践"
+  },
+
+  // ---------- 模块四：财税体制改革和税制改革历程（12题） ----------
+  {
+    id: 23,
+    topic: "四、财税与税制改革",
+    type: "single",
+    stem: "根据课堂原笔记记录，我国小口径宏观税负（税收收入/GDP）的演变趋势是（ ）。",
+    options: [
+      "由2012年的12.6%升至2025年的18.6%",
+      "由2012年的18.6%降至2025年的12.6%",
+      "始终稳定在15.0%的绝对标准值",
+      "由2012年的22.4%降至2025年的16.8%"
+    ],
+    answer: ["B"],
+    explanation: "原笔记记录：我国小口径宏观税负（税收收入/GDP）由2012年的 18.6% 降至2025年的 12.6%。合理宏观税负没有绝对静态标准值。",
+    source: "专题四 · 1.宏观财税改革与总体脉络"
+  },
+  {
+    id: 24,
+    topic: "四、财税与税制改革",
+    type: "multi",
+    stem: "关于宏观税负合理区间的把握，下列分析正确的有哪些？",
+    options: [
+      "合理宏观税负没有绝对静态标准值",
+      "税负过高可能抑制生产力、加剧分配不均并影响营商环境",
+      "税负过低则可能增加财政赤字和债务风险，影响教育、医疗等公共服务供给",
+      "需在“一总量、两结构、高质量”框架下统筹把握"
+    ],
+    answer: ["A", "B", "C", "D"],
+    explanation: "宏观税负过高或过低均会产生负面影响，税负失衡还可能造成财力配置不均、地区发展差距扩大以及人才资本外流等问题，需在“一总量、两结构、高质量”框架下统筹把握。",
+    source: "专题四 · 1.宏观财税改革与总体脉络"
+  },
+  {
+    id: 25,
+    topic: "四、财税与税制改革",
+    type: "multi",
+    stem: "面向“十五五”时期，财税体制改革进一步完善地方税与直接税体系，同时强化税务监管的具体着力点包括（ ）。",
+    options: [
+      "加强重点管理",
+      "打击骗享优惠",
+      "加大欠税追缴力度",
+      "全面取消间接税"
+    ],
+    answer: ["A", "B", "C"],
+    explanation: "面向“十五五”，进一步完善地方税与直接税体系，强化税务监管（加强重点管理、打击骗享优惠、加大欠税追缴力度）。直接税与间接税相辅相成，不能偏废。",
+    source: "专题四 · 1.宏观财税改革与总体脉络"
+  },
+  {
+    id: 26,
+    topic: "四、财税与税制改革",
+    type: "multi",
+    stem: "与间接税相比，直接税（以所得税和财产税为主，税负不易转嫁）具有哪些显著特点？",
+    options: [
+      "有利于培养纳税人意识",
+      "有利于调节收入分配、体现税负公平",
+      "能够发挥经济“自动稳定器”作用",
+      "纳税人痛感明显、对征管能力要求高"
+    ],
+    answer: ["A", "B", "C", "D"],
+    explanation: "直接税（所得税、财产税为主，不易转嫁）优点是利于培养纳税人意识、调节收入分配、体现公平、发挥经济“自动稳定器”作用；缺点是纳税人痛感明显、对征管能力要求高。间接税（货物和劳务税为主，可转嫁）征管相对便利。",
+    source: "专题四 · 2.完善直接税体系与健全体制机制"
+  },
+  {
+    id: 27,
+    topic: "四、财税与税制改革",
+    type: "single",
+    stem: "在我国直接税改革重点举措中，环境保护税正式施行（实现“排污费改税”）以及房地产税在上海、重庆开展试点分别始于哪一年？",
+    options: ["2018年和2011年", "2016年和2011年", "2018年和2013年", "2019年和2012年"],
+    answer: ["A"],
+    explanation: "直接税改革重点：①个人所得税转向“综合与分类相结合”；②房地产税2011年起在上海、重庆开展试点，结合“十五五”规划适时稳妥推进；③环境保护税2018年正式施行，实现“排污费改税”；④企业所得税优化税收优惠结构。",
+    source: "专题四 · 2.完善直接税体系与健全体制机制"
+  },
+  {
+    id: 28,
+    topic: "四、财税与税制改革",
+    type: "single",
+    stem: "健全地方税体系的重要目标之一，是通过扩大地方税权、增加地方自主财力，更好发挥中央和地方“两个积极性”，破解基层（ ）的困境。",
+    options: [
+      "税收征管数字化程度低",
+      "财力与事权不匹配",
+      "直接税比重过高",
+      "跨区域税源转移"
+    ],
+    answer: ["B"],
+    explanation: "健全地方税体系：通过扩大地方税权、增加地方自主财力，更好发挥中央和地方“两个积极性”，破解基层“财力与事权不匹配”的困境。",
+    source: "专题四 · 2.完善直接税体系与健全体制机制"
+  },
+  {
+    id: 29,
+    topic: "四、财税与税制改革",
+    type: "single",
+    stem: "作为我国第一大税种，增值税改革的核心主线是（ ）。",
+    options: ["调节收入分配", "提升税收中性", "服务绿色低碳", "支持科技创新"],
+    answer: ["B"],
+    explanation: "增值税（第一大税种）核心改革主线是“提升税收中性”，具体包括完成营改增（五大行业、六次地区扩围）、完善留抵退税、动态评估清理优惠、减少差额计算及一般纳税人简易计税情形，畅通抵扣链条。",
+    source: "专题四 · 3.代表性税种改革与税收法定原则"
+  },
+  {
+    id: 30,
+    topic: "四、财税与税制改革",
+    type: "single",
+    stem: "现行消费税共有（ ）个税目，针对部分税目设置不合理、调节力度待加强等问题，改革方向是稳步推进消费税征收环节（ ）并下划地方。",
+    options: ["15；前移", "15；后移", "18；后移", "12；前移"],
+    answer: ["B"],
+    explanation: "消费税针对特定商品和消费行为开展特殊调节（现行 15 个税目），主线是调节消费结构、服务绿色低碳，改革方向为稳步推进消费税征收环节“后移”并下划地方。",
+    source: "专题四 · 3.代表性税种改革与税收法定原则"
+  },
+  {
+    id: 31,
+    topic: "四、财税与税制改革",
+    type: "multi",
+    stem: "企业所得税（第二大主税种）以“支持科技创新、赋能实体经济”为核心主线，具体改革举措包括哪些？",
+    options: [
+      "强化研发费用加计扣除与创新强度关联",
+      "对中小企业实施差异化精准扶持",
+      "优化固定资产折旧等成本扣除机制以缩短投资回收周期",
+      "联系制造业数智化转型、新质生产力发展及市场化重组退出"
+    ],
+    answer: ["A", "B", "C", "D"],
+    explanation: "企业所得税改革举措包括：研发费用加计扣除强化与创新强度关联、中小企业差异化精准扶持、优化成本扣除机制缩短投资回收周期，并服务于制造业数智化转型、新质生产力发展及市场化重组退出。",
+    source: "专题四 · 3.代表性税种改革与税收法定原则"
+  },
+  {
+    id: 32,
+    topic: "四、财税与税制改革",
+    type: "single",
+    stem: "个人所得税（第三大税种）以“促进共同富裕、调节收入分配”为主线，聚焦“（ ）”，原笔记记录的个税改革关键时间节点为2018年9月与2019年1月。",
+    options: [
+      "扩中、提低、调高",
+      "减税、降费、缓税",
+      "征、管、查三分离",
+      "合作、合并、合成"
+    ],
+    answer: ["A"],
+    explanation: "个人所得税改革聚焦“扩中、提低、调高”：提高基本减除费用标准及专项附加扣除（2018年9月、2019年1月时间节点）减轻中低收入群体负担，同时加强对高收入、高净值群体的精准监管。",
+    source: "专题四 · 3.代表性税种改革与税收法定原则"
+  },
+  {
+    id: 33,
+    topic: "四、财税与税制改革",
+    type: "multi",
+    stem: "针对地方附加税费征收分散的问题，改革探索将哪三项税费合并为地方附加税，并授权地方在一定幅度内自主确定具体适用税率？",
+    options: ["城市维护建设税", "教育费附加", "地方教育附加", "城镇土地使用税"],
+    answer: ["A", "B", "C"],
+    explanation: "地方附加税费改革：针对城市维护建设税、教育费附加、地方教育附加征收分散问题，探索合并为地方附加税，并授权地方在一定幅度内自主确定具体适用税率。",
+    source: "专题四 · 3.代表性税种改革与税收法定原则"
+  },
+  {
+    id: 34,
+    topic: "四、财税与税制改革",
+    type: "multi",
+    stem: "在落实税收法定原则的进阶发展中，下列做法符合培训要点的有（ ）。",
+    options: [
+      "法律是税务机关征税和纳税人纳税的唯一依据",
+      "推进“18个税种+《税收征收管理法》”法治体系建设及《税法典》研究",
+      "规范税务行政处罚裁量权基准",
+      "严厉治理违规招商引资涉税乱象与打击“开票经济”"
+    ],
+    answer: ["A", "B", "C", "D"],
+    explanation: "以上四项均为专题四“落实税收法定原则的进阶发展”中的核心要求，旨在统筹做好法律法规衔接与税种间衔接，切实保护纳税人合法权益。",
+    source: "专题四 · 3.代表性税种改革与税收法定原则"
+  },
+
+  // ---------- 模块五：青年干部思想政治引领与作风建设（3题） ----------
+  {
+    id: 35,
+    topic: "五、青年干部思想与作风",
+    type: "single",
+    stem: "在青年干部思想政治引领与作风建设中，对教育管理监督青年干部负有主体责任的是（ ）。",
+    options: ["同级纪检监察机关", "各级党组织", "人事教育部门", "青年工作委员会"],
+    answer: ["B"],
+    explanation: "青年干部是党和国家税务事业的未来与希望。“各级党组织”负有教育管理监督青年干部的主体责任，必须坚持从严从实。",
+    source: "专题五 · 青年干部思想政治引领与作风建设"
+  },
+  {
+    id: 36,
+    topic: "五、青年干部思想与作风",
+    type: "multi",
+    stem: "各级党组织必须紧盯青年干部在数量结构、岗位分布及行权特点上的新变化，重点防范和纠治青年干部中可能出现的“四类苗头性问题”，即（ ）。",
+    options: ["理想信念缺失", "法纪观念淡薄", "工作失职失责", "道德行为失范"],
+    answer: ["A", "B", "C", "D"],
+    explanation: "重点防范的“四类苗头性问题”：①理想信念缺失；②法纪观念淡薄；③工作失职失责；④道德行为失范。",
+    source: "专题五 · 青年干部思想政治引领与作风建设"
+  },
+  {
+    id: 37,
+    topic: "五、青年干部思想与作风",
+    type: "multi",
+    stem: "青年干部加强党性修养与实战锻炼，应当不断提升“政治三力”，具体是指（ ）。",
+    options: ["政治判断力", "政治领悟力", "政治执行力", "政治创新力"],
+    answer: ["A", "B", "C"],
+    explanation: "青年干部实践路径明确要求：不断提升“政治判断力、政治领悟力、政治执行力”，坚持经常性学习教育，做到学思用贯通、知信行统一。",
+    source: "专题五 · 青年干部思想政治引领与作风建设"
+  },
+
+  // ---------- 模块六：税务网络与数据安全防线（9题） ----------
+  {
+    id: 38,
+    topic: "六、网络与数据安全防线",
+    type: "multi",
+    stem: "网络安全已上升为国家战略高度，它具有哪五大基本特征？",
+    options: ["整体性、动态性", "开放性、相对性", "共同性", "绝对静态性"],
+    answer: ["A", "B", "C"],
+    explanation: "网络安全具有“整体性、动态性、开放性、相对性和共同性”五大特征，是确保社会各界正常运行的基石。",
+    source: "专题六 · 1.政治引领与上位法依据"
+  },
+  {
+    id: 39,
+    topic: "六、网络与数据安全防线",
+    type: "single",
+    stem: "税务机关首先是（ ），这一根本属性决定了网络安全是必须扛牢的政治任务，且历史经验表明，安全事件往往源于思想松懈，（ ）永远替代不了管理责任。",
+    options: [
+      "经济管理机关；资金投入",
+      "政治机关；技术防线",
+      "行政执法机关；外部审计",
+      "公共服务机关；硬件升级"
+    ],
+    answer: ["B"],
+    explanation: "税务机关首先是“政治机关”，政治属性决定了网络安全是必须扛牢的政治任务，网络安全是全系统各部门的共同责任。“技术防线”永远替代不了管理责任。",
+    source: "专题六 · 1.政治引领与上位法依据"
+  },
+  {
+    id: 40,
+    topic: "六、网络与数据安全防线",
+    type: "multi",
+    stem: "我国网络与数据安全核心法律制度体系“四法一条例”包括《网络安全法》《数据安全法》《个人信息保护法》《密码法》以及（ ）。",
+    options: [
+      "《网络数据安全管理条例》",
+      "以“告知—同意”为核心的个人信息处理规则",
+      "对敏感个人信息实施特别保护",
+      "明确数据处理者的主体责任"
+    ],
+    answer: ["A", "B", "C", "D"],
+    explanation: "“四法一条例”即《网络安全法》《数据安全法》《个人信息保护法》《密码法》+《网络数据安全管理条例》，明确数据处理者主体责任，确立以“告知—同意”为核心的个人信息处理规则，对敏感个人信息实施特别保护。",
+    source: "专题六 · 1.政治引领与上位法依据"
+  },
+  {
+    id: 41,
+    topic: "六、网络与数据安全防线",
+    type: "multi",
+    stem: "在税务网络与数据安全形势研判中，人工智能（AI）引入的新安全风险主要包括哪些？",
+    options: [
+      "深度伪造技术滥用",
+      "智能工具便利性背后隐藏的数据泄露代价",
+      "AI为网络攻击者提供更高效便捷的攻击手段",
+      "导致税务内网物理光缆老化"
+    ],
+    answer: ["A", "B", "C"],
+    explanation: "AI引入的三大新安全风险：①深度伪造技术滥用；②智能工具便利性背后隐藏的数据泄露代价；③AI为网络攻击者提供更高效便捷的攻击手段。",
+    source: "专题六 · 2.形势研判与风险识别"
+  },
+  {
+    id: 42,
+    topic: "六、网络与数据安全防线",
+    type: "multi",
+    stem: "税务人员在日常数据使用与保密管理中，必须严格落实“三不”原则与保密纪律，下列做法正确的有（ ）。",
+    options: [
+      "严格落实“数据不落地、不带走、不外传”",
+      "严守保密纪律，做到“涉密不上网、上网不涉密”",
+      "加强计算机终端用户账号与权限精细化管理",
+      "为提高效率，可使用个人免费外部AI工具分析未脱敏涉税数据"
+    ],
+    answer: ["A", "B", "C"],
+    explanation: "核心管理原则明确：严格落实“数据不落地、不带走、不外传”；做到“涉密不上网、上网不涉密”；未经授权，严禁使用外部工具处理涉税数据。",
+    source: "专题六 · 3.日常安全防线与实操规范"
+  },
+  {
+    id: 43,
+    topic: "六、网络与数据安全防线",
+    type: "single",
+    stem: "【高频考点】在网络事件应急处置中，当发现可疑网络异常、钓鱼攻击或数据泄露苗头时，原笔记特别强调的处置原则是（ ）。",
+    options: [
+      "立即关机并拔掉电源，彻底格式化硬盘",
+      "断网不关机，立即进行网络隔离、保留现场与有关证据并按规定报告",
+      "自行删除异常日志后继续正常办理业务",
+      "先重启电脑尝试恢复网络，无效后再上报"
+    ],
+    answer: ["B"],
+    explanation: "网络事件应急处置明确要求：发现可疑网络异常、钓鱼攻击或数据泄露苗头，应立即进行网络隔离、保留现场与有关证据，并按规定报告；原笔记特别强调“断网不关机”，不应擅自断电、删改信息。",
+    source: "专题六 · 3.日常安全防线与实操规范"
+  },
+  {
+    id: 44,
+    topic: "六、网络与数据安全防线",
+    type: "single",
+    stem: "关于税务系统账号与口令安全管理要求，密码长度至少（ ）位以上，且必须包含（ ）类以上字符组合。",
+    options: ["8；两", "10；三", "12；三", "16；四"],
+    answer: ["C"],
+    explanation: "日常安全好习惯第①条：账号与口令需设置 12 位以上、至少三类字符组合（大小写字母、数字、特殊符号），防范弱口令及多系统共用。",
+    source: "专题六 · 3.日常安全防线与实操规范"
+  },
+  {
+    id: 45,
+    topic: "六、网络与数据安全防线",
+    type: "multi",
+    stem: "防范钓鱼邮件与恶意链接攻击，日常收到邮件时必须做到“三看”，具体是指（ ）。",
+    options: ["看发件人", "看主题内容", "看附件格式", "看邮件发送时间是否为工作日"],
+    answer: ["A", "B", "C"],
+    explanation: "邮件安全做到“三看”：看发件人、看主题内容、看附件格式，警惕可疑链接，使用单位认可的安全工具。",
+    source: "专题六 · 3.日常安全防线与实操规范"
+  },
+  {
+    id: 46,
+    topic: "六、网络与数据安全防线",
+    type: "single",
+    stem: "关于税务行业网络与数据安全风险特征的描述，下列哪项不属于课堂总结的行业特点？",
+    options: [
+      "人员多、机构多",
+      "系统多、业务量大",
+      "税费数据价值极高",
+      "税务数据全部公开透明，无需分级分类保护"
+    ],
+    answer: ["D"],
+    explanation: "税务行业特征为“人员多、机构多、系统多、业务量大、税费数据价值极高”，数据安全风险日益突出，必须严格执行分级分类与安全防线要求。",
+    source: "专题六 · 2.形势研判与风险识别"
+  }
+];
+
+// ================= 全局状态管理 =================
+const STORAGE_KEY = "tax_training_quiz_state_v2";
+
+let state = {
+  userAnswers: {},
+  wrongBook: {},
+  starredIds: [],
+  currentView: "all",
+  currentTopic: "all",
+  currentType: "all",
+  currentIndex: 0,
+  reciteMode: false,
+  tempMultiSelections: {},
+  exam: {
+    active: false,
+    questionIds: [],
+    answers: {},
+    seconds: 0,
+    timerId: null
+  }
+};
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const saved = JSON.parse(raw);
+      // 每次重新打开页面时，重置当次答题选项状态，让所有题目以全新未作答状态开始；
+      // 仅永久保留「错题本」与「收藏夹」数据！
+      state.userAnswers = {};
+      state.wrongBook = saved.wrongBook || {};
+      state.starredIds = saved.starredIds || [];
+    }
+  } catch (e) {
+    console.warn("读取本地存储失败", e);
+  }
+}
+
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      wrongBook: state.wrongBook,
+      starredIds: state.starredIds
+    }));
+  } catch (e) {
+    console.warn("保存本地存储失败", e);
+  }
+}
+
+// ================= 手机端抽屉控制 =================
+function openMobileDrawer() {
+  document.getElementById("sidebarDrawer").classList.add("open");
+  document.getElementById("drawerBackdrop").classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+function closeMobileDrawer() {
+  document.getElementById("sidebarDrawer").classList.remove("open");
+  document.getElementById("drawerBackdrop").classList.remove("show");
+  document.body.style.overflow = "";
+}
+
+// 获取当前筛选后的题目列表
+function getFilteredQuestions() {
+  if (state.exam.active) {
+    return state.exam.questionIds.map(id => QUESTIONS.find(q => q.id === id)).filter(Boolean);
+  }
+
+  return QUESTIONS.filter(q => {
+    if (state.currentTopic !== "all" && q.topic !== state.currentTopic) return false;
+    if (state.currentType !== "all" && q.type !== state.currentType) return false;
+
+    if (state.currentView === "wrong") {
+      return (state.wrongBook[q.id] || 0) > 0;
+    }
+    if (state.currentView === "star") {
+      return state.starredIds.includes(q.id);
+    }
+    if (state.currentView === "unanswered") {
+      return !state.userAnswers[q.id];
+    }
+    return true;
+  });
+}
+
+// 渲染左侧专题列表
+function renderTopics() {
+  const topics = ["all", ...new Set(QUESTIONS.map(q => q.topic))];
+  const container = document.getElementById("topicList");
+  container.innerHTML = topics.map(t => {
+    const count = t === "all" ? QUESTIONS.length : QUESTIONS.filter(q => q.topic === t).length;
+    const label = t === "all" ? "全部六大专题" : t;
+    const active = state.currentTopic === t ? "active" : "";
+    return `
+      <button class="topic-btn ${active}" onclick="selectTopic('${t}')">
+        <span>${label}</span>
+        <span class="topic-count">${count}</span>
+      </button>
+    `;
+  }).join("");
+}
+
+// 渲染统计面板
+function renderStats() {
+  const total = QUESTIONS.length;
+  const doneIds = Object.keys(state.userAnswers);
+  const doneCount = doneIds.length;
+  const correctCount = doneIds.filter(id => state.userAnswers[id].isCorrect).length;
+  const rate = doneCount === 0 ? 0 : Math.round((correctCount / doneCount) * 100);
+  const wrongCount = Object.keys(state.wrongBook).filter(id => state.wrongBook[id] > 0).length;
+  const starCount = state.starredIds.length;
+
+  document.getElementById("statDone").textContent = `${doneCount} / ${total}`;
+  document.getElementById("statRate").textContent = `${rate}%`;
+  document.getElementById("statWrong").textContent = wrongCount;
+  document.getElementById("statStar").textContent = starCount;
+  document.getElementById("tabWrongCount").textContent = wrongCount;
+  document.getElementById("tabStarCount").textContent = starCount;
+
+  const miniStat = document.getElementById("mobileMiniStat");
+  if (miniStat) {
+    miniStat.textContent = `${doneCount}/${total} · 正确率${rate}%`;
+  }
+}
+
+// 渲染左侧答题卡
+function renderSheet(list) {
+  const grid = document.getElementById("sheetGrid");
+  if (list.length === 0) {
+    grid.innerHTML = `<div style="grid-column: 1/-1; font-size: 12px; color: #9CA3AF; text-align: center; padding: 12px 0;">暂无符合条件的题目</div>`;
+    return;
+  }
+
+  grid.innerHTML = list.map((q, idx) => {
+    let cls = "sheet-item";
+    if (idx === state.currentIndex) cls += " current";
+    if (state.starredIds.includes(q.id)) cls += " starred";
+
+    if (state.exam.active) {
+      const ans = state.exam.answers[q.id];
+      if (ans && ans.length > 0) cls += " correct";
+    } else {
+      const rec = state.userAnswers[q.id];
+      if (rec) {
+        cls += rec.isCorrect ? " correct" : " wrong";
+      }
+    }
+
+    return `<button class="${cls}" onclick="jumpToQuestion(${idx})" title="第${q.id}题">${q.id}</button>`;
+  }).join("");
+}
+
+// 渲染主题目区域
+function renderQuestion() {
+  const list = getFilteredQuestions();
+  if (state.currentIndex >= list.length) {
+    state.currentIndex = Math.max(0, list.length - 1);
+  }
+
+  renderSheet(list);
+  renderStats();
+
+  const container = document.getElementById("questionContainer");
+  if (list.length === 0) {
+    let emptyTitle = "当前筛选条件下暂无题目";
+    let emptyDesc = "你可以切换上方的视图标签或专题筛选继续复习。";
+    if (state.currentView === "wrong") {
+      emptyTitle = "🎉 错题本为空！";
+      emptyDesc = "目前没有做错的题目，继续保持！";
+    } else if (state.currentView === "star") {
+      emptyTitle = "⭐ 收藏夹为空";
+      emptyDesc = "在刷题时点击题目右上角的“收藏”，重点难点会自动归集到这里。";
+    }
+    container.innerHTML = `
+      <div class="question-card empty-state">
+        <h3>${emptyTitle}</h3>
+        <p>${emptyDesc}</p>
+        <button class="btn btn-primary" style="margin-top: 16px;" onclick="switchView('all')">返回全部题库</button>
+      </div>
+    `;
+    return;
+  }
+
+  const q = list[state.currentIndex];
+  const isStarred = state.starredIds.includes(q.id);
+  const wrongTimes = state.wrongBook[q.id] || 0;
+  const letters = ["A", "B", "C", "D"];
+
+  let submittedRecord = null;
+  let currentSelected = [];
+
+  if (state.exam.active) {
+    currentSelected = state.exam.answers[q.id] || [];
+  } else {
+    submittedRecord = state.userAnswers[q.id] || null;
+    if (submittedRecord) {
+      currentSelected = submittedRecord.selected;
+    } else if (q.type === "multi") {
+      currentSelected = state.tempMultiSelections[q.id] || [];
+    }
+  }
+
+  const showResult = !state.exam.active && (Boolean(submittedRecord) || state.reciteMode);
+
+  // 生成选项 HTML
+  const optionsHtml = q.options.map((optText, i) => {
+    const key = letters[i];
+    const isChosen = currentSelected.includes(key);
+    const isRightKey = q.answer.includes(key);
+
+    let optCls = "option-item";
+    let badgeHtml = "";
+
+    if (showResult) {
+      optCls += " disabled";
+      if (isRightKey) {
+        optCls += " correct-ans";
+        badgeHtml = `<span class="option-badge badge-correct">✓ 正确</span>`;
+      } else if (isChosen && !isRightKey) {
+        optCls += " wrong-ans";
+        badgeHtml = `<span class="option-badge badge-wrong">✗ 误选</span>`;
+      }
+    } else {
+      if (isChosen) {
+        optCls += " selected";
+        badgeHtml = `<span class="option-badge badge-selected">✓ 已选</span>`;
+      }
+    }
+
+    return `
+      <div class="${optCls}" onclick="handleOptionClick(${q.id}, '${key}')">
+        <div class="option-key">${key}</div>
+        <div class="option-text">${optText}</div>
+        ${badgeHtml}
+      </div>
+    `;
+  }).join("");
+
+  // 多选题提交栏
+  let multiBarHtml = "";
+  if (q.type === "multi" && !showResult && !state.exam.active) {
+    const chosenText = currentSelected.length > 0 ? currentSelected.slice().sort().join("、") : "未选";
+    multiBarHtml = `
+      <div class="multi-submit-bar">
+        <span class="multi-hint">已选：<strong>${chosenText}</strong>（少选/错选不得分）</span>
+        <button class="btn btn-primary" onclick="submitMultiAnswer(${q.id})">确认提交</button>
+      </div>
+    `;
+  } else if (q.type === "multi" && state.exam.active) {
+    const chosenText = currentSelected.length > 0 ? currentSelected.slice().sort().join("、") : "未选";
+    multiBarHtml = `
+      <div class="multi-submit-bar">
+        <span class="multi-hint">已选：<strong>${chosenText}</strong>（交卷后统一判分）</span>
+      </div>
+    `;
+  }
+
+  // 解析区 HTML（带直接跳下一题快捷按钮）
+  let explanationHtml = "";
+  if (showResult) {
+    let statusHtml = "";
+    if (submittedRecord) {
+      statusHtml = submittedRecord.isCorrect
+        ? `<span class="exp-status ok">✅ 回答正确！</span>`
+        : `<span class="exp-status err">❌ 回答错误（选：${submittedRecord.selected.join("、")}）</span>`;
+    } else if (state.reciteMode) {
+      statusHtml = `<span class="exp-status ok">📖 背题模式</span>`;
+    }
+
+    const nextQuickBtn = state.currentIndex < list.length - 1
+      ? `<button class="btn btn-success" style="padding: 4px 10px; font-size: 12px; margin-left: auto;" onclick="nextQuestion()">下一题 ➡</button>`
+      : "";
+
+    explanationHtml = `
+      <div class="explanation-box" id="expBox">
+        <div class="exp-header">
+          ${statusHtml}
+          <span class="exp-ans">答案：${q.answer.join("、")}</span>
+          ${nextQuickBtn}
+        </div>
+        <div class="exp-content"><strong>【解析】</strong>${q.explanation}</div>
+        <div class="exp-source">📌 ${q.source}</div>
+      </div>
+    `;
+  }
+
+  const removeWrongBtn = (!state.exam.active && wrongTimes > 0)
+    ? `<button class="btn btn-outline" style="padding: 2px 7px; font-size: 11px;" onclick="removeFromWrongBook(${q.id})">🗑 移出</button>`
+    : "";
+
+  const redoBtn = (!state.exam.active && submittedRecord)
+    ? `<button class="btn btn-outline" style="padding: 2px 7px; font-size: 11px;" onclick="redoQuestion(${q.id})">🔄 重做</button>`
+    : "";
+
+  container.innerHTML = `
+    <div class="question-card" id="activeQuestionCard">
+      <div class="q-meta">
+        <div class="q-tags">
+          <span class="tag-type ${q.type === 'multi' ? 'multi' : ''}">${q.type === 'multi' ? '多选' : '单选'}</span>
+          <span class="tag-topic">${q.topic}</span>
+          ${wrongTimes > 0 ? `<span class="tag-wrong-count">错${wrongTimes}次</span>` : ''}
+        </div>
+        <div class="q-actions-top">
+          ${redoBtn}
+          ${removeWrongBtn}
+          <button class="star-btn ${isStarred ? 'starred' : ''}" onclick="toggleStar(${q.id})">
+            ${isStarred ? '★ 已藏' : '☆ 收藏'}
+          </button>
+        </div>
+      </div>
+
+      <div class="q-stem">
+        <span class="q-index">第${q.id}题.</span>${q.stem}
+      </div>
+
+      <div class="options-list">
+        ${optionsHtml}
+      </div>
+
+      ${multiBarHtml}
+      ${explanationHtml}
+
+      <div class="nav-footer">
+        <button class="btn btn-outline" onclick="prevQuestion()" ${state.currentIndex === 0 ? 'disabled style="opacity:0.5;cursor:not-allowed;"' : ''}>⬅ 上一题</button>
+        <span class="progress-text">${state.currentIndex + 1} / ${list.length} 题</span>
+        <button class="btn btn-primary" onclick="nextQuestion()" ${state.currentIndex >= list.length - 1 ? 'disabled style="opacity:0.5;cursor:not-allowed;"' : ''}>下一题 ➡</button>
+      </div>
+    </div>
+  `;
+}
+
+// 精准滚动到题目卡片顶部（保证切换下一题时，题干和所有选项完整呈现在屏幕正中央！）
+function scrollToQuestionCard() {
+  const card = document.getElementById("activeQuestionCard") || document.getElementById("questionContainer");
+  if (card) {
+    const y = card.getBoundingClientRect().top + window.scrollY - 8;
+    window.scrollTo({ top: Math.max(0, y), behavior: "instant" });
+  }
+}
+
+// ================= 核心交互逻辑 =================
+function handleOptionClick(qId, optionKey) {
+  const q = QUESTIONS.find(item => item.id === qId);
+  if (!q) return;
+
+  if (state.exam.active) {
+    if (q.type === "single") {
+      state.exam.answers[qId] = [optionKey];
+    } else {
+      const prev = state.exam.answers[qId] || [];
+      if (prev.includes(optionKey)) {
+        state.exam.answers[qId] = prev.filter(k => k !== optionKey);
+      } else {
+        state.exam.answers[qId] = [...prev, optionKey].sort();
+      }
+    }
+    renderQuestion();
+    return;
+  }
+
+  if (state.userAnswers[qId] || state.reciteMode) return;
+
+  if (q.type === "single") {
+    evaluateAnswer(q, [optionKey]);
+  } else {
+    const current = state.tempMultiSelections[qId] || [];
+    if (current.includes(optionKey)) {
+      state.tempMultiSelections[qId] = current.filter(k => k !== optionKey);
+    } else {
+      state.tempMultiSelections[qId] = [...current, optionKey].sort();
+    }
+    renderQuestion();
+  }
+}
+
+function submitMultiAnswer(qId) {
+  const q = QUESTIONS.find(item => item.id === qId);
+  if (!q) return;
+  const selected = state.tempMultiSelections[qId] || [];
+  if (selected.length === 0) {
+    alert("请先至少选择一个选项后再提交！");
+    return;
+  }
+  evaluateAnswer(q, selected);
+  delete state.tempMultiSelections[qId];
+}
+
+function evaluateAnswer(q, selectedArr) {
+  const sortedSel = [...selectedArr].sort();
+  const sortedAns = [...q.answer].sort();
+  const isCorrect = sortedSel.length === sortedAns.length && sortedSel.every((v, i) => v === sortedAns[i]);
+
+  state.userAnswers[q.id] = {
+    selected: sortedSel,
+    isCorrect: isCorrect,
+    submitted: true
+  };
+
+  if (!isCorrect) {
+    state.wrongBook[q.id] = (state.wrongBook[q.id] || 0) + 1;
+  }
+
+  saveState();
+  renderQuestion();
+
+  // 提交后自动将解析区平滑滚动进视野，方便直接看解析并点击下一题
+  setTimeout(() => {
+    const exp = document.getElementById("expBox");
+    if (exp) {
+      exp.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }, 50);
+}
+
+function redoQuestion(qId) {
+  delete state.userAnswers[qId];
+  delete state.tempMultiSelections[qId];
+  saveState();
+  renderQuestion();
+}
+
+function removeFromWrongBook(qId) {
+  delete state.wrongBook[qId];
+  saveState();
+  renderQuestion();
+}
+
+function toggleStar(qId) {
+  if (state.starredIds.includes(qId)) {
+    state.starredIds = state.starredIds.filter(id => id !== qId);
+  } else {
+    state.starredIds.push(qId);
+  }
+  saveState();
+  renderQuestion();
+}
+
+function switchView(viewName) {
+  if (state.exam.active) {
+    exitExamMode(false);
+  }
+  state.currentView = viewName;
+  state.currentIndex = 0;
+  document.querySelectorAll(".mode-tab").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.view === viewName);
+  });
+  renderQuestion();
+  scrollToQuestionCard();
+}
+
+function selectTopic(topicName) {
+  if (state.exam.active) {
+    exitExamMode(false);
+  }
+  state.currentTopic = topicName;
+  state.currentIndex = 0;
+  renderTopics();
+  renderQuestion();
+  closeMobileDrawer();
+  scrollToQuestionCard();
+}
+
+function syncTypeFilter(val) {
+  if (state.exam.active) {
+    exitExamMode(false);
+  }
+  state.currentType = val;
+  const pcSel = document.getElementById("typeFilter");
+  const mobSel = document.getElementById("mobileTypeFilter");
+  if (pcSel) pcSel.value = val;
+  if (mobSel) mobSel.value = val;
+  state.currentIndex = 0;
+  renderQuestion();
+  scrollToQuestionCard();
+}
+
+function jumpToQuestion(idx) {
+  state.currentIndex = idx;
+  renderQuestion();
+  closeMobileDrawer();
+  scrollToQuestionCard();
+}
+
+function prevQuestion() {
+  if (state.currentIndex > 0) {
+    state.currentIndex--;
+    renderQuestion();
+    scrollToQuestionCard();
+  }
+}
+
+function nextQuestion() {
+  const list = getFilteredQuestions();
+  if (state.currentIndex < list.length - 1) {
+    state.currentIndex++;
+    renderQuestion();
+    scrollToQuestionCard();
+  }
+}
+
+function toggleReciteMode() {
+  if (state.exam.active) {
+    alert("模拟自测进行中，无法开启背题模式！");
+    return;
+  }
+  state.reciteMode = !state.reciteMode;
+  const btn = document.getElementById("btnReciteMode");
+  btn.textContent = state.reciteMode ? "📖 背题：开" : "📖 背题：关";
+  btn.classList.toggle("active", state.reciteMode);
+  renderQuestion();
+}
+
+// ================= 模拟自测逻辑 =================
+function toggleExamMode() {
+  if (state.exam.active) {
+    exitExamMode(true);
+  } else {
+    startExamMode();
+  }
+}
+
+function startExamMode() {
+  if (state.reciteMode) {
+    state.reciteMode = false;
+    const rBtn = document.getElementById("btnReciteMode");
+    rBtn.textContent = "📖 背题：关";
+    rBtn.classList.remove("active");
+  }
+
+  const shuffled = [...QUESTIONS].sort(() => Math.random() - 0.5).slice(0, 20);
+  state.exam = {
+    active: true,
+    questionIds: shuffled.map(q => q.id),
+    answers: {},
+    seconds: 0,
+    timerId: null
+  };
+  state.currentIndex = 0;
+
+  document.getElementById("btnExamMode").classList.add("active");
+  document.getElementById("examBanner").style.display = "flex";
+  updateTimerDisplay();
+
+  state.exam.timerId = setInterval(() => {
+    state.exam.seconds++;
+    updateTimerDisplay();
+  }, 1000);
+
+  renderQuestion();
+  scrollToQuestionCard();
+}
+
+function updateTimerDisplay() {
+  const mins = String(Math.floor(state.exam.seconds / 60)).padStart(2, "0");
+  const secs = String(state.exam.seconds % 60).padStart(2, "0");
+  document.getElementById("examTimer").textContent = `${mins}:${secs}`;
+}
+
+function finishExam() {
+  if (!state.exam.active) return;
+  clearInterval(state.exam.timerId);
+
+  let correctCount = 0;
+  const totalExam = state.exam.questionIds.length;
+
+  state.exam.questionIds.forEach(id => {
+    const q = QUESTIONS.find(item => item.id === id);
+    const sel = (state.exam.answers[id] || []).slice().sort();
+    const ans = q.answer.slice().sort();
+    const isRight = sel.length === ans.length && sel.every((v, i) => v === ans[i]);
+
+    if (isRight) {
+      correctCount++;
+    } else {
+      state.wrongBook[id] = (state.wrongBook[id] || 0) + 1;
+    }
+
+    if (sel.length > 0) {
+      state.userAnswers[id] = {
+        selected: sel,
+        isCorrect: isRight,
+        submitted: true
+      };
+    }
+  });
+
+  saveState();
+  const score = correctCount * 5;
+  const timeStr = document.getElementById("examTimer").textContent;
+
+  document.getElementById("modalScore").textContent = score;
+  document.getElementById("modalSummary").textContent =
+    `共 ${totalExam} 题，答对 ${correctCount} 题，答错 ${totalExam - correctCount} 题（用时 ${timeStr}）。错题已自动加入你的专属错题本！`;
+  document.getElementById("examResultModal").classList.add("show");
+
+  exitExamMode(false);
+}
+
+function exitExamMode(needConfirm = true) {
+  if (needConfirm && state.exam.active) {
+    if (!confirm("确定要退出当前模拟自测吗？未交卷的进度将不会计分。")) return;
+  }
+  if (state.exam.timerId) {
+    clearInterval(state.exam.timerId);
+  }
+  state.exam.active = false;
+  document.getElementById("btnExamMode").classList.remove("active");
+  document.getElementById("examBanner").style.display = "none";
+  state.currentIndex = 0;
+  renderQuestion();
+}
+
+function closeExamModal(goWrongBook) {
+  document.getElementById("examResultModal").classList.remove("show");
+  if (goWrongBook) {
+    switchView("wrong");
+  }
+}
+
+function resetAllProgress() {
+  if (!confirm("确定要清空所有做题记录、错题本和收藏夹吗？此操作不可恢复。")) return;
+  state.userAnswers = {};
+  state.wrongBook = {};
+  state.starredIds = [];
+  state.tempMultiSelections = {};
+  saveState();
+  state.currentIndex = 0;
+  renderQuestion();
+  closeMobileDrawer();
+}
+
+function downloadSelfHtml() {
+  const htmlSource = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+  const blob = new Blob([htmlSource], { type: "text/html;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "index.html";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft") prevQuestion();
+  if (e.key === "ArrowRight") nextQuestion();
+});
+
+loadState();
+renderTopics();
+renderQuestion();
+</script>
+</body>
+</html>
